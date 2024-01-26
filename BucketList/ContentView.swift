@@ -5,17 +5,40 @@
 //  Created by Oleg Gavashi on 26.01.2024.
 //
 
+import MapKit
 import SwiftUI
 
 struct ContentView: View {
+    @State private var locations = [Location]()
+    @State private var selectedLocation: Location?
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        MapReader { proxy in
+            Map {
+                ForEach(locations) { location in
+                    Annotation(location.name, coordinate: location.coordinate) {
+                        Image(systemName: "mappin.circle.fill")
+                            .resizable()
+                            .foregroundColor(.blue)
+                            .frame(width: 40, height: 40)
+                            .clipShape(.circle)
+                            .onLongPressGesture {
+                                selectedLocation = location
+                            }
+                    }
+                }
+            }
+            .onTapGesture { position in
+                if let coordinate = proxy.convert(position, from: .local) {
+                    let newLocation = Location(id: UUID(), name: "New name", description: "", latitude: coordinate.latitude, longtitude: coordinate.longitude)
+                    
+                    locations.append(newLocation)
+                }
+            }
         }
-        .padding()
+        .sheet(item: $selectedLocation) { item in
+            Text(item.name)
+        }
     }
 }
 

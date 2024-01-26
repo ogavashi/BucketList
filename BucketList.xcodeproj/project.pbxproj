@@ -14,6 +14,7 @@
 		8B4A04222B63FA9400714EE6 /* BucketListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4A04212B63FA9400714EE6 /* BucketListTests.swift */; };
 		8B4A042C2B63FA9400714EE6 /* BucketListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4A042B2B63FA9400714EE6 /* BucketListUITests.swift */; };
 		8B4A042E2B63FA9400714EE6 /* BucketListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4A042D2B63FA9400714EE6 /* BucketListUITestsLaunchTests.swift */; };
+		8B4A043B2B64026F00714EE6 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4A043A2B64026F00714EE6 /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		8B4A04272B63FA9400714EE6 /* BucketListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BucketListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B4A042B2B63FA9400714EE6 /* BucketListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListUITests.swift; sourceTree = "<group>"; };
 		8B4A042D2B63FA9400714EE6 /* BucketListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8B4A043A2B64026F00714EE6 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 		8B4A040F2B63FA9300714EE6 /* BucketList */ = {
 			isa = PBXGroup;
 			children = (
+				8B4A043C2B6407CC00714EE6 /* Data */,
 				8B4A04102B63FA9300714EE6 /* BucketListApp.swift */,
 				8B4A04122B63FA9300714EE6 /* ContentView.swift */,
 				8B4A04142B63FA9400714EE6 /* Assets.xcassets */,
@@ -125,6 +128,14 @@
 				8B4A042D2B63FA9400714EE6 /* BucketListUITestsLaunchTests.swift */,
 			);
 			path = BucketListUITests;
+			sourceTree = "<group>";
+		};
+		8B4A043C2B6407CC00714EE6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8B4A043A2B64026F00714EE6 /* Location.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B4A04132B63FA9300714EE6 /* ContentView.swift in Sources */,
+				8B4A043B2B64026F00714EE6 /* Location.swift in Sources */,
 				8B4A04112B63FA9300714EE6 /* BucketListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,6 +436,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"BucketList/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need to unlock your data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -452,6 +465,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"BucketList/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need to unlock your data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
