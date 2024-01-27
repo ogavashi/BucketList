@@ -21,6 +21,7 @@ struct ContentView: View {
                             .resizable()
                             .foregroundColor(.blue)
                             .frame(width: 40, height: 40)
+                            .background(.white)
                             .clipShape(.circle)
                             .onLongPressGesture {
                                 selectedLocation = location
@@ -30,18 +31,23 @@ struct ContentView: View {
             }
             .onTapGesture { position in
                 if let coordinate = proxy.convert(position, from: .local) {
-                    let newLocation = Location(id: UUID(), name: "New name", description: "", latitude: coordinate.latitude, longtitude: coordinate.longitude)
+                    let newLocation = Location(id: UUID(), name: "", description: "", latitude: coordinate.latitude, longtitude: coordinate.longitude)
                     
                     locations.append(newLocation)
                 }
             }
         }
         .sheet(item: $selectedLocation) { item in
-            Text(item.name)
+            EditView(location: item) { updatedPlace in
+                if let index = locations.firstIndex(of: item) {
+                    locations[index] = updatedPlace
+                }
+            }
         }
     }
 }
 
 #Preview {
     ContentView()
+        .preferredColorScheme(.dark)
 }

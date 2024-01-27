@@ -15,6 +15,10 @@
 		8B4A042C2B63FA9400714EE6 /* BucketListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4A042B2B63FA9400714EE6 /* BucketListUITests.swift */; };
 		8B4A042E2B63FA9400714EE6 /* BucketListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4A042D2B63FA9400714EE6 /* BucketListUITestsLaunchTests.swift */; };
 		8B4A043B2B64026F00714EE6 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4A043A2B64026F00714EE6 /* Location.swift */; };
+		8B8B7F3C2B653B4C00CCA5F8 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8B7F3B2B653B4C00CCA5F8 /* EditView.swift */; };
+		8B8B7F3E2B6543BA00CCA5F8 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8B7F3D2B6543BA00CCA5F8 /* Result.swift */; };
+		8B8B7F412B65444A00CCA5F8 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8B7F402B65444A00CCA5F8 /* LoadingState.swift */; };
+		8B8B7F472B654CD700CCA5F8 /* fetchNearby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8B7F462B654CD700CCA5F8 /* fetchNearby.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +50,10 @@
 		8B4A042B2B63FA9400714EE6 /* BucketListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListUITests.swift; sourceTree = "<group>"; };
 		8B4A042D2B63FA9400714EE6 /* BucketListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8B4A043A2B64026F00714EE6 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		8B8B7F3B2B653B4C00CCA5F8 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
+		8B8B7F3D2B6543BA00CCA5F8 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		8B8B7F402B65444A00CCA5F8 /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
+		8B8B7F462B654CD700CCA5F8 /* fetchNearby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fetchNearby.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +104,9 @@
 		8B4A040F2B63FA9300714EE6 /* BucketList */ = {
 			isa = PBXGroup;
 			children = (
+				8B8B7F452B654CCD00CCA5F8 /* api */,
+				8B8B7F3F2B65443600CCA5F8 /* constants */,
+				8B8B7F3A2B653AC000CCA5F8 /* View */,
 				8B4A043C2B6407CC00714EE6 /* Data */,
 				8B4A04102B63FA9300714EE6 /* BucketListApp.swift */,
 				8B4A04122B63FA9300714EE6 /* ContentView.swift */,
@@ -134,8 +145,33 @@
 			isa = PBXGroup;
 			children = (
 				8B4A043A2B64026F00714EE6 /* Location.swift */,
+				8B8B7F3D2B6543BA00CCA5F8 /* Result.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		8B8B7F3A2B653AC000CCA5F8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8B8B7F3B2B653B4C00CCA5F8 /* EditView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8B8B7F3F2B65443600CCA5F8 /* constants */ = {
+			isa = PBXGroup;
+			children = (
+				8B8B7F402B65444A00CCA5F8 /* LoadingState.swift */,
+			);
+			path = constants;
+			sourceTree = "<group>";
+		};
+		8B8B7F452B654CCD00CCA5F8 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				8B8B7F462B654CD700CCA5F8 /* fetchNearby.swift */,
+			);
+			path = api;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,8 +304,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B8B7F412B65444A00CCA5F8 /* LoadingState.swift in Sources */,
+				8B8B7F472B654CD700CCA5F8 /* fetchNearby.swift in Sources */,
 				8B4A04132B63FA9300714EE6 /* ContentView.swift in Sources */,
+				8B8B7F3E2B6543BA00CCA5F8 /* Result.swift in Sources */,
 				8B4A043B2B64026F00714EE6 /* Location.swift in Sources */,
+				8B8B7F3C2B653B4C00CCA5F8 /* EditView.swift in Sources */,
 				8B4A04112B63FA9300714EE6 /* BucketListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
