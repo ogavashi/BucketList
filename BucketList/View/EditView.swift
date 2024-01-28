@@ -9,53 +9,21 @@ import SwiftUI
 
 struct EditView: View {
     @Environment(\.dismiss) var dismiss
-    var location: Location
-    var save: (Location) -> Void
-    
-    @State private var name: String
-    @State private var description: String
-    
-    @State private var loadingState = LoadingState.loading
-    @State private var pages = [Page]()
+    @State private var viewModel: ViewModel
     
     init(location: Location, save: @escaping (Location) -> Void) {
-        self.location = location
-        self.save = save
-        
-        _name = State(initialValue: location.name)
-        _description = State(initialValue: location.description)
+        _viewModel = State(initialValue: ViewModel(location: location, save: save))
     }
-    
-    func handleSave() {
-        var updatedLocation = location
-        updatedLocation.id = UUID()
-        updatedLocation.name = name
-        updatedLocation.description = description
-        
-        save(updatedLocation)
-        dismiss()
-    }
-    
-    func getNearby() async {
-        do {
-            pages = try await fetchNearby(location) ?? []
-            loadingState = .loaded
-        } catch {
-            print(error)
-            loadingState = .failed
-        }
-    }
-    
     
     var body: some View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Place name", text: $name)
-                    TextField("Description", text: $description)
+                    TextField("Place name", text: $viewModel.name)
+                    TextField("Description", text: $viewModel.description)
                 }
                 Section("Nearby...") {
-                    switch loadingState {
+                    switch viewModel.loadingState {
                     case .loading:
                         HStack {
                             Spacer()
@@ -63,7 +31,7 @@ struct EditView: View {
                             Spacer()
                         }
                     case .loaded:
-                        ForEach(pages, id: \.pageid) { page in
+                        ForEach(viewModel.pages, id: \.pageid) { page in
                             VStack(alignment: .leading) {
                                 Text(page.title)
                                     .font(.headline)
@@ -81,7 +49,10 @@ struct EditView: View {
             .navigationTitle("Edit location")
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Save", action: handleSave)
+                    Button("Save") {
+                        viewModel.handleSave()
+                        dismiss()
+                    }
                 }
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {
@@ -90,7 +61,7 @@ struct EditView: View {
                 }
             }
             .task {
-                await getNearby()
+                await viewModel.getNearby()
             }
         }
     }
